@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import connectDb from "./utils/db.js"
 import authRouter from './routes/auth.route.js'
+import employRouter from './routes/employ.route.js'
 
 dotenv.config()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 connectDb()
 
 app.use("/api/auth", authRouter)
+app.use("/api/employers",employRouter)
 
 
 //route to handle errors
