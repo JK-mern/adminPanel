@@ -1,0 +1,22 @@
+{
+  "name": "admin_panel_backend",
+  "version": "1.0.0",
+  "description": "Backed api for the admin panel ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "jayakrishnan s",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4",
+    "nanoid": "^5.0.7",
+    "nodemon": "^3.1.0",
+    "zod": "^3.23.6"
+  }
+}
