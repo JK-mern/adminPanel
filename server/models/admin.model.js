@@ -7,7 +7,8 @@ const adminSchema = mongoose.Schema ( {
     },
     f_username : {
         type : String,
-        required : true
+        required : true,
+        unique: true
     },
     f_Pwd : {
         type : String,
