@@ -35,8 +35,6 @@ export const createEmployee = async (req, res, next) => {
       if (checkEmployeeEmail)
         return next(errorHandler(400, "Employee email already exist"));
 
-
-
       const newEmploye = new Employe(req.body);
       await newEmploye.save();
       res.status(201).json("New employee created");
@@ -53,7 +51,7 @@ export const createEmployee = async (req, res, next) => {
 export const findEmployee = async (req, res, next) => {
   try {
     const empName = req.params.empName;
-    console.log(empName)
+    console.log(empName);
     const employee = await Employe.findOne({ f_Name: empName });
     res.status(200).json(employee);
   } catch (error) {
@@ -61,10 +59,19 @@ export const findEmployee = async (req, res, next) => {
   }
 };
 
-export const updateEmployee = async (req,res,next) =>{
+export const updateEmployee = async (req, res, next) => {
     try {
-        
+      const empName = req.params.empName;
+  
+      const updatedEmployee = await Employe.findOneAndUpdate(
+        { f_Name: empName },
+        { $set: req.body },
+        { new: true }
+      );
+  
+      res.status(200).json({ message: "Employee details updated successfully", updatedEmployee }); // Fixed response format
     } catch (error) {
-        next (error)
+      next(error);
     }
-}
+  };
+  
