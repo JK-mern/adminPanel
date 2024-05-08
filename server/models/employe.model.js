@@ -17,7 +17,7 @@ const employeSchema = new mongoose.Schema({
   f_Mobile: {
     type: Number,
     required: true,
-    unique: true,
+   
   },
   f_Designation: {
     type: String,

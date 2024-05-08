@@ -29,13 +29,13 @@ export const createEmployee = async (req, res, next) => {
     const validation = validationSchema.parse(req.body);
 
     if (validation) {
-      const checkEmployeeEmail = await Employe.findOne({ f_Email: req.body.f_Email });
+      const checkEmployeeEmail = await Employe.findOne({
+        f_Email: req.body.f_Email,
+      });
       if (checkEmployeeEmail)
         return next(errorHandler(400, "Employee email already exist"));
 
-      const checkEmployeeNumber = await Employe.findOne({ f_Mobile: req.body.f_Mobile });
-      if (checkEmployeeNumber)
-        return next(errorHandler(400, "Employee number already exist"));
+
 
       const newEmploye = new Employe(req.body);
       await newEmploye.save();
@@ -49,3 +49,22 @@ export const createEmployee = async (req, res, next) => {
     next(error);
   }
 };
+
+export const findEmployee = async (req, res, next) => {
+  try {
+    const empName = req.params.empName;
+    console.log(empName)
+    const employee = await Employe.findOne({ f_Name: empName });
+    res.status(200).json(employee);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateEmployee = async (req,res,next) =>{
+    try {
+        
+    } catch (error) {
+        next (error)
+    }
+}
