@@ -39,7 +39,7 @@ const employeSchema = new mongoose.Schema({
     required: true,
   },
   f_createDate: {
-    type: Date,
+    type: String,
   },
 });
 
